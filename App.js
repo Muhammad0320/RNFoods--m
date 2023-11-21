@@ -12,8 +12,11 @@ export default function App() {
     <>
       {" "}
       <StatusBar styles="dark" />
-      <NavigationContainer></NavigationContainer>
-      <CategoriesScreen />{" "}
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="MealCategories" component={CategoriesScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 }
