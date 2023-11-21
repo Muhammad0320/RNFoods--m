@@ -10,6 +10,7 @@ function CategoriesScreen() {
       renderItem={({ item: { color, title } }) => (
         <CategoryGridTile color={color} title={title} />
       )}
+      numColumns={2}
     />
   );
 }
