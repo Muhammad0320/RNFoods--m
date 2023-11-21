@@ -1,9 +1,17 @@
 import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 
 function CategoryGridTile({ title, color }) {
+  console.log(title);
+  {
+    /* <Text style={styles.title}>{!!title && title}</Text> */
+  }
+
   return (
     <View style={[styles.container, styles.outerContainer]}>
-      <Pressable style={styles.container}>
+      <Pressable
+        style={({ pressed }) => [styles.container, pressed && styles.button]}
+        android_ripple={{ color: "#ccc" }}
+      >
         <View
           style={[
             styles.innerContainer,
@@ -11,7 +19,7 @@ function CategoryGridTile({ title, color }) {
             { backgroundColor: color },
           ]}
         >
-          <Text style={styles.title}> {title} </Text>
+          {!!"" && <Text>Text</Text>}
         </View>
       </Pressable>
     </View>
