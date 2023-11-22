@@ -2,59 +2,59 @@ import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 
 function CategoryGridTile({ title, color, onPress }) {
   return (
-    <View style={[styles.gridItem, styles.container]}>
+    <View style={styles.gridItem}>
+      <Text> Odeh </Text>
       <Pressable
         android_ripple={{ color: "#ddd" }}
         style={[
-          ({ pressed }) => [styles.container, pressed ? styles.button : null],
+          ({ pressed }) => (pressed ? styles.pressIos : null),
+          styles.button,
         ]}
         onPress={onPress}
       >
-        <View
-          style={[
-            { backgroundColor: color },
-            styles.innerContainer,
-            styles.container,
-          ]}
-        >
-          <Text style={styles.title}> {title} </Text>
+        <View style={[{ backgroundColor: color }, styles.innerContainer]}>
+          <Text style={styles.gridText}> {title} </Text>
         </View>
       </Pressable>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+export default CategoryGridTile;
 
+const styles = StyleSheet.create({
   gridItem: {
-    padding: 16,
+    flex: 1,
+    height: 150,
     borderRadius: 8,
-    elevation: 4,
+    backgroundColor: "#fff",
+    elevation: 5,
+    margin: 16,
     shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
-    textShadowRadius: 8,
-    shadowOffset: { width: 0.5, height: 2 },
+    shadowRadius: 4,
+
     overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
 
-  innerContainer: {
-    borderRadius: 8,
-    justifyContent: "center",
-    alignContent: "center",
-    padding: 16,
+  pressIos: {
+    opacity: 0.6,
   },
 
   button: {
-    opacity: 0.75,
+    flex: 1,
+  },
+  innerContainer: {
+    flex: 1,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 8,
   },
 
-  title: {
-    fontWeight: "bold",
-    fontSize: 16,
+  gridText: {
+    fontWeight: "600",
+    fontSize: 18,
   },
 });
-
-export default CategoryGridTile;
