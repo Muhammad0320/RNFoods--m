@@ -7,10 +7,10 @@ function CategoriesScreen() {
     <FlatList
       data={CATEGORIES}
       keyExtractor={(item) => item.id}
-      renderItem={({ item: { color, title } }) => (
+      numColumns={2}
+      renderItem={({ item: { title, color, id } }) => (
         <CategoryGridTile color={color} title={title} />
       )}
-      numColumns={2}
     />
   );
 }
